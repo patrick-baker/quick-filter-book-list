@@ -9,12 +9,11 @@ const verbose = true;
 var convert = require('xml-js');
 
 // GET route template for API request for book search
-router.get('/', (req, res) => {
+router.get('/:queryText', (req, res) => {
     if (verbose) console.log ('req.params of /books get:', req.params);
-    if (verbose) console.log ('req.body of /books get:', req.body);
     axios.get('https://www.goodreads.com/search', {
         params: {
-            q: req.body.queryText ,
+            q: req.params.queryText ,
             key:process.env.GOODREADS_KEY  
         }
     }).then((result) => {

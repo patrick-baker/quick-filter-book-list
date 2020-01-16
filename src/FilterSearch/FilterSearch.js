@@ -2,15 +2,14 @@ import React from 'react';
 
 
 class FilterSearch extends React.Component {
+
+    alterQueryText = (event) => {
+        this.props.pullBooksFromGoodreads(event.target.value);
+    }
+
     render() {
         return (
-            <table>
-                <tr>
-                    <th>Book Title</th>
-                    <th>Author</th>
-                    <th>Image</th>
-                </tr>
-            </table>
+            <input onChange={(event) => this.alterQueryText(event)}></input>
         );
     }
 }
