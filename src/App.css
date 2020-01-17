@@ -1,12 +1,14 @@
 p {
   margin: 0px;
 }
+
 .App {
   text-align: center;
   background: #f1f1f1;
   min-height: 100vh;
 }
 
+/* fa search icon in top right of header */
 .new-search {
   position: absolute;
   right: 2rem;
@@ -14,6 +16,7 @@ p {
   color: white;
 }
 
+/* search bar which renders in new search mode */
 .search-bar {
   display: flex;
   flex-direction: column;

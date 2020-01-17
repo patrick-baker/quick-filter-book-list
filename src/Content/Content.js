@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import FilterSearch from '../FilterSearch/FilterSearch'
-
-const verbose = true; // shows console logs below
+const verbose = false; // shows console logs below
 
 class Content extends React.Component {
     state = {
