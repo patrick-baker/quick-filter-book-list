@@ -5,7 +5,13 @@ class FilterSearch extends React.Component {
 
     render() {
         return (
-            <input onChange={(event) => this.props.searchFunction(event.target.value)}></input>
+            <label>
+                {this.props.label}
+                <input 
+                className="bordered-input" 
+                onChange={(event) => this.props.searchFunction(event.target.value)}
+                ></input>
+            </label> 
         );
     }
 }

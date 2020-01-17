@@ -5,7 +5,7 @@ p {
   text-align: center;
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -14,6 +14,22 @@ p {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+.bordered-input {
+  width: 12%;
+  min-width: 120px;
+  margin: 2rem 0rem 2rem 2rem;
+}
+
+.bordered-input:hover {
+  box-shadow: 0 0 10px #aaa;
+}
+
+@media (max-width: 941px) {
+  .bordered-input {
+    box-shadow: 0 0 10px #aaa;
+  }
 }
 
 h1 {
