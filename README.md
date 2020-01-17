@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Book Filter
 
-## Available Scripts
+## Description
+_Duration: 1-Day_
 
-In the project directory, you can run:
+The Book Filter app allows a user to quick filter through a list of books retrieved from Goodreads through the Goodreads API, as well as search for new books by entering new search mode to search using a new keyword. Quick filter works with titles and author names alike.
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Prerequisites
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Before you get started, make sure you have the following software installed on your computer:
 
-### `npm test`
+- [Node.js](https://nodejs.org/en/)
+- [Nodemon](https://nodemon.io/)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Usage
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. After logging in, users will be brought to their ```home``` page, which will list all of their projects.
+2. Clicking on the ```create``` button will allow the user to enter the project form, where they will create all of the project metadata and analyze the text of their strategy document.
+3. After analysis, a project report will generate, which shows project metadata, data visualization of the analysis findings and suggested experts which match the highest occurences of insensitivities, as well as an option for the user to reanalyze a reiteration of the strategy doc.
+4. Back on the ```home``` page, a user can view a past report by clicking the report button on a given project.
+5. The ```expert``` view shows all of the experts in the database, including information on their specialties, their contact info, and their bio.
+6. Admins can edit and delete experts in the ```expert``` view.
+7. Admins can also enter the ```rules``` view to add or delete rules which the rules-based system uses to flag potentially insensitive words or phrases for the report.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+1. Get to main project directory in command line, assuming node is installed, and type in `npm install` to install required dependencies.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Built With
+- _node.js_
+- _Express.js_
+- _React_
+- _GoodReads API_ 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Support
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+If you have any questions, feel free to email me at bakerpj1992@gmail.com
 
-## Learn More
+## Acknowledgments
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Shoutout to all of Prime staff for being so supportive and being such great teachers.
