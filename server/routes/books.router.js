@@ -4,7 +4,7 @@ const axios = require('axios');
 // allows access to dotenv file for api key
 require('dotenv').config();
 // when true, console logs show up in console.
-const verbose = true;
+const verbose = false;
 // converts xml notation to js objects
 var convert = require('xml-js');
 
