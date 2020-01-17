@@ -48,7 +48,8 @@ class BooksTable extends React.Component {
     render() {
         return (
             <>
-                <FilterSearch searchFunction={this.searchFilter} />
+                {/* onChange searchFunction filters content according to input */}
+                <FilterSearch searchFunction={this.searchFilter} label='Filter Search'/>
                     <div class="container">
                         <div>
                             {this.state.refinedBookList.map((book, i) => (
