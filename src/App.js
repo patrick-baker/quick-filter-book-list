@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
+import BooksTable from './BooksTable/BooksTable';
+import FilterSearch from './FilterSearch/FilterSearch';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component {
+  state = {
+    bookList: [],
+  }
+
+  pullBooksFromGoodreads = (queryText) => {
+    console.log('queryText for booksList request to server', queryText);
+    axios.get(`/books/${queryText}`)
+    .then(response => {
+        console.log('response of bookList from server:', response);
+        this.setState({
+          bookList: response
+        })
+    })
+    .catch(error => {
+      console.log('error in bookList request to server:', error);
+    })
+}
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <FilterSearch pullBooksFromGoodreads={this.pullBooksFromGoodreads}/>
+          <BooksTable bookList={this.state.bookList}/>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
