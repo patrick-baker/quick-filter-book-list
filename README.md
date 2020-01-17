@@ -3,7 +3,9 @@
 ## Description
 _Duration: 1-Day_
 
-The Book Filter app allows a user to quick filter through a list of books retrieved from Goodreads through the Goodreads API, as well as search for new books by entering new search mode to search using a new keyword. Quick filter works with titles and author names alike.
+The Book Filter app allows a user to quick filter through a list of books retrieved from Goodreads through the Goodreads API, as well as search for new books by entering new search mode to search using a new keyword. Quick filter works with titles and author names alike. 
+
+You can find the deployed version [here](https://book-filter.herokuapp.com/).
 
 
 ## Prerequisites
