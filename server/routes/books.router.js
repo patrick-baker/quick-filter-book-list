@@ -9,15 +9,14 @@ const verbose = true;
 var convert = require('xml-js');
 
 // GET route template for API request for book search
-router.get('/:queryText', (req, res) => {
+router.get('/:search', (req, res) => {
     if (verbose) console.log ('req.params of /books get:', req.params);
     axios.get('https://www.goodreads.com/search', {
         params: {
-            q: req.params.queryText ,
-            key:process.env.GOODREADS_KEY,
+            q: req.params.search ,
+            key:process.env.GOODREADS_KEY  
         }
     }).then((result) => {
-        // if (verbose) console.log('results of /books get:', convert.xml2js(result.data).elements[0].elements[1].elements[6].elements[0].elements[8].elements[1]);
         if (verbose) console.log('results of /books get:', convert.xml2js(result.data).elements[0].elements[1].elements[6]);
         // converts xml notation to JS object, to be converted to JSON by axios upon sending to front-end
         res.send(convert.xml2js(result.data).elements[0].elements[1].elements[6]);

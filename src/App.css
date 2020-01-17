@@ -1,16 +1,8 @@
+p {
+  margin: 0px;
+}
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -24,15 +16,71 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  color: gray;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: -3px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/******************************************
+              For Book Cards
+*******************************************/
+
+/* centers cards on page */
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.book {
+  display: inline-block;
+  width: 230px;
+  height: 390px;
+  box-shadow: 0 0 10px #aaa;
+  margin: 25px;
+  padding: 10px 10px 0 10px;
+  vertical-align: top;
+}
+
+.cover {
+  border: 1px solid gray;
+  height: 70%;
+  overflow: hidden;
+}
+
+.cover img {
+  width: 100%;
+}
+
+.description {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.title {
+  font-size: 1rem;
+}
+
+.author {
+  font-size: .8rem;
+  font-style: italic;
+}
+
+@media (max-width: 941px) {
+  .container {
+    max-width: 700px;
   }
-  to {
-    transform: rotate(360deg);
+  .book {
+    margin: 49px;
+  }
+}
+@media (max-width: 730px) {
+  .book {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
   }
 }

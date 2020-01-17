@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import BooksTable from './BooksTable/BooksTable';
+import Content from './Content/Content';
 
-
-
-class App extends Component {
-
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <BooksTable />
-        </header>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <Content />
+    </div>
+  );
 }
 
 export default App;
