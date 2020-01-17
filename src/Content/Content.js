@@ -4,7 +4,7 @@ import FilterSearch from '../FilterSearch/FilterSearch'
 
 const verbose = true; // shows console logs below
 
-class BooksTable extends React.Component {
+class Content extends React.Component {
     state = {
         // bookList upon retrieving query to GoodReads from server
         originalBookList: [],
@@ -73,11 +73,13 @@ class BooksTable extends React.Component {
                         <label>
                             Search New Books
                             <input 
+                                // changes this.state.search for new queryText for API search
                                 onChange={(event) => this.onChangeEventHandler(event)} 
                                 className="bordered-input"
                             />
                         </label>
-                        <button 
+                        <button
+                            // runs API search with new queryText 
                             onClick={() => this.pullBooksFromGoodreads(this.state.search)}
                             type="button"
                         >
@@ -93,16 +95,21 @@ class BooksTable extends React.Component {
                             <i className="fas fa-search"></i>
                             <p>new search</p>
                         </div>
+                        {/* input component for filtering search */}
                         <FilterSearch searchFunction={this.searchFilter} label='Filter Books' />
                         <div class="container">
                             <div>
+                                {/* maps out filtered bookList */}
                                 {this.state.refinedBookList.map((book, i) => (
                                     <div class="book" key={i}>
                                         <div class="cover">
+                                            {/* location of cover image in returned json */}
                                             <img src={book.elements[8].elements[3].elements[0].text} />
                                         </div>
                                         <div class="description">
+                                            {/* title of returned json book */}
                                             <p class="title">{book.elements[8].elements[1].elements[0].text}</p>
+                                            {/* author of returned json book */}
                                             <p class="author">{book.elements[8].elements[2].elements[1].elements[0].text}</p>
                                         </div>
                                     </div>
@@ -116,4 +123,4 @@ class BooksTable extends React.Component {
     }
 }
 
-export default BooksTable;
+export default Content;
