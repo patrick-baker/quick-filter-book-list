@@ -9,13 +9,18 @@ class BooksTable extends React.Component {
         // bookList upon retrieving query to GoodReads from server
         originalBookList: [],
         // the rendered bookList, which filters through this.state.originalBookList onChange of FilterSearch input
-        refinedBookList: []
+        refinedBookList: [],
+        // renders input for new API search when true
+        newSearchMode: false,
+        // search parameters for new API search
+        search: ''
     }
 
     componentDidMount() {
         let search = 'Software';
         this.pullBooksFromGoodreads(search);
     }
+
     // request to server for GoodReads query
     pullBooksFromGoodreads = (queryText) => {
         if (verbose) console.log('queryText for booksList request to server', queryText);
@@ -26,7 +31,8 @@ class BooksTable extends React.Component {
                 // sets originalBookList to filter through, and refinedBookList to render
                 this.setState({
                     originalBookList: response.data.elements,
-                    refinedBookList: response.data.elements
+                    refinedBookList: response.data.elements,
+                    newSearchMode: false
                 })
             })
             .catch(error => {
@@ -45,27 +51,66 @@ class BooksTable extends React.Component {
         })
     }
 
+    toggleSearchMode = () => {
+        this.setState({
+            newSearchMode: !this.state.newSearchMode
+        })
+    }
+
+    onChangeEventHandler = (event) => {
+        this.setState({
+            search: event.target.value
+        })
+        console.log(this.state.search);
+    }
+
     render() {
         return (
             <>
-                {/* onChange searchFunction filters content according to input */}
-                <FilterSearch searchFunction={this.searchFilter} label='Filter Books'/>
-                    <div class="container">
-                        <div>
-                            {this.state.refinedBookList.map((book, i) => (
-                                <div class="book" key={i}>
-                                    <div class="cover">
-                                        <img src= {book.elements[8].elements[3].elements[0].text}/>
+                {/* renders input for new API call */}
+                {this.state.newSearchMode &&
+                    <div className="search-bar">
+                        <label>
+                            Search New Books
+                            <input 
+                                onChange={(event) => this.onChangeEventHandler(event)} 
+                                className="bordered-input"
+                            />
+                        </label>
+                        <button 
+                            onClick={() => this.pullBooksFromGoodreads(this.state.search)}
+                            type="button"
+                        >
+                            Search
+                        </button>
+
+                    </div>}
+                {/* renders book list and filter  */}
+                {!this.state.newSearchMode &&
+                    <div>
+                        {/* onChange searchFunction filters content according to input */}
+                        <div className="new-search" onClick={this.toggleSearchMode}>
+                            <i className="fas fa-search"></i>
+                            <p>new search</p>
+                        </div>
+                        <FilterSearch searchFunction={this.searchFilter} label='Filter Books' />
+                        <div class="container">
+                            <div>
+                                {this.state.refinedBookList.map((book, i) => (
+                                    <div class="book" key={i}>
+                                        <div class="cover">
+                                            <img src={book.elements[8].elements[3].elements[0].text} />
+                                        </div>
+                                        <div class="description">
+                                            <p class="title">{book.elements[8].elements[1].elements[0].text}</p>
+                                            <p class="author">{book.elements[8].elements[2].elements[1].elements[0].text}</p>
+                                        </div>
                                     </div>
-                                    <div class="description">
-                                        <p class="title">{book.elements[8].elements[1].elements[0].text}</p>
-                                        <p class="author">{book.elements[8].elements[2].elements[1].elements[0].text}</p>
-                                    </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
-                {/* <pre>{JSON.stringify(this.state.refinedBookList, null, 2)}</pre> */}
+                }
             </>
         );
     }

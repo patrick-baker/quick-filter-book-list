@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <Header />
       <Content />
-      <h3>Created by Patrick Baker</h3>
     </div>
   );
 }
