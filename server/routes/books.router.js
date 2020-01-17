@@ -5,6 +5,7 @@ const axios = require('axios');
 require('dotenv').config();
 // when true, console logs show up in console.
 const verbose = true;
+// converts xml notation to js objects
 var convert = require('xml-js');
 
 // GET route template for API request for book search
@@ -17,6 +18,7 @@ router.get('/:search', (req, res) => {
         }
     }).then((result) => {
         if (verbose) console.log('results of /books get:', convert.xml2js(result.data).elements[0].elements[1].elements[6]);
+        // converts xml notation to JS object, to be converted to JSON by axios upon sending to front-end
         res.send(convert.xml2js(result.data).elements[0].elements[1].elements[6]);
     }).catch( error => {
         if (verbose) console.log('error in /books get request', error);
