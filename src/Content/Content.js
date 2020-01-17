@@ -13,7 +13,7 @@ class BooksTable extends React.Component {
     }
 
     componentDidMount() {
-        let search = 'Awesome';
+        let search = 'Software';
         this.pullBooksFromGoodreads(search);
     }
     // request to server for GoodReads query
@@ -49,7 +49,7 @@ class BooksTable extends React.Component {
         return (
             <>
                 {/* onChange searchFunction filters content according to input */}
-                <FilterSearch searchFunction={this.searchFilter} label='Filter Search'/>
+                <FilterSearch searchFunction={this.searchFilter} label='Filter Books'/>
                     <div class="container">
                         <div>
                             {this.state.refinedBookList.map((book, i) => (
